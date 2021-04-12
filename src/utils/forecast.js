@@ -14,13 +14,19 @@ const forecast = (latitude, longitude, callback) => {
     } else if (body.error) {
       callback("Unable to find location!", undefined);
     } else {
+      //console.log(body.current.data[0]);
       callback(
         undefined,
         "It is currently " +
           body.current.temperature +
           " degrees out. It feels like  " +
           body.current.feelslike +
-          " degrees out"
+          " degrees out. " +
+          "The wind speed today is " +
+          body.current.wind_speed +
+          " with the wind degree of " +
+          body.current.wind_degree +
+          "."
       );
     }
   });
